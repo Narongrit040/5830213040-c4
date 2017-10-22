@@ -62,6 +62,7 @@
        
         <asp:TextBox ID="TextCategory" runat="server"></asp:TextBox>
         <asp:Button ID="searchCategory" runat="server" Text="Search" />
+        <asp:Button ID="Button1" runat="server" PostBackUrl="Category_Add.aspx" Text="Add Category" />
         <br />
         <br />
         <asp:GridView ID="gvBrand" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="CategoryDS" Width="600px" CssClass="mydatagrid">
@@ -79,6 +80,7 @@
             <HeaderStyle CssClass="header" />
             <RowStyle CssClass="rows" />
         </asp:GridView>
+        <asp:Button ID="Button2" runat="server" PostBackUrl="index.aspx" Text="Back" />
         <asp:SqlDataSource ID="CategoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * 
 FROM [Category] 
 WHERE categoryName LIKE '%' + ISNULL(@searchCategoryName, categoryname) + '%'

@@ -42,7 +42,7 @@
                 <br />
                 <br />
                 <asp:Button ID="btnInsert" runat="server" CommandName="Insert" Text="เพิ่ม" />
-                <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" PostBackUrl="~/BrandData.aspx" Text="ยกเลิก" />
+                <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" PostBackUrl="BrandData.aspx" Text="ยกเลิก" />
             </InsertItemTemplate>
             <ItemTemplate>
                 brandkey:

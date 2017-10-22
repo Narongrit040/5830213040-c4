@@ -11,4 +11,7 @@ Partial Class Brand_Add
     Private Sub brandDS_Inserted(sender As Object, e As SqlDataSourceStatusEventArgs) Handles brandDS.Inserted
         Response.Redirect("BrandData.aspx")
     End Sub
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+    End Sub
 End Class

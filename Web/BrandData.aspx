@@ -39,6 +39,7 @@
             <RowStyle CssClass="rows" />
         </asp:GridView>
     </div>
+        <asp:Button ID="Button1" runat="server" PostBackUrl="index.aspx" Text="Back" />
         <asp:SqlDataSource ID="brandDS" runat="server" ConnectionString="<%$ ConnectionStrings:Sample_Connection %>" SelectCommand="SELECT * 
 FROM [Brand] 
 WHERE brandName LIKE '%' + ISNULL(@searchBrandName, brandname) + '%'

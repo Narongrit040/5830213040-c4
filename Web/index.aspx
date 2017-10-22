@@ -8,8 +8,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
+   <center>
         <div>
-        </div>
+            DATA SYSTEM<br />
+            <br />
+            <asp:Button ID="Button1" runat="server" PostBackUrl="BrandData.aspx" Text="Brand" />
+            <asp:Button ID="Button2" runat="server" PostBackUrl="CategoryData.aspx" Text="Category" />
+            <asp:Button ID="Button3" runat="server" PostBackUrl="ProductData.aspx" Text="Product" />
+            <asp:Button ID="Button4" runat="server" PostBackUrl="UnitData.aspx" Text="Unit" />
+        </div></center>
     </form>
 </body>
 </html>

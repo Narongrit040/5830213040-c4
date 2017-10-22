@@ -27,7 +27,7 @@
                 modifydate:
                 <asp:Label ID="modifydateLabel" runat="server" Text='<%# Bind("modifydate") %>' />
                 <br />
-                   <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="cancel" PostBackUrl="~/BrandData.aspx" Text="ยกเลิก" />
+                   <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="cancel" PostBackUrl="BrandData.aspx" Text="ยกเลิก" />
             </ItemTemplate>
         </asp:FormView>
         <asp:SqlDataSource ID="dsBrand" runat="server" ConnectionString="<%$ ConnectionStrings:Sample_Connection %>" SelectCommand="SELECT * FROM [Brand] where brandkey = @brandkey" UpdateCommand="UPDATE Brand SET brandname = @brandname, description = @description, usermodify = 'Admin', modifydate = GETDATE() WHERE (brandkey = @BrandKey)">

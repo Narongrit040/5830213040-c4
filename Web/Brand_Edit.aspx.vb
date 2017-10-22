@@ -11,4 +11,13 @@ Partial Class Brand_Edit
     Private Sub dsBrand_Updated(sender As Object, e As SqlDataSourceStatusEventArgs) Handles dsBrand.Updated
         Response.Redirect("BrandData.aspx")
     End Sub
+    Protected Sub fvBrand_PageIndexChanging(sender As Object, e As FormViewPageEventArgs) Handles fvBrand.PageIndexChanging
+
+    End Sub
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+    End Sub
+    Protected Sub dsBrand_Selecting(sender As Object, e As SqlDataSourceSelectingEventArgs) Handles dsBrand.Selecting
+
+    End Sub
 End Class

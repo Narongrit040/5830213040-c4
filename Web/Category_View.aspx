@@ -67,7 +67,7 @@
                 ModifyDate:
                 <asp:Label ID="ModifyDateLabel" runat="server" Text='<%# Bind("ModifyDate") %>' />
                 <br />
-                <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="cancel" PostBackUrl="CategoryData.aspx" Text="ยกเลิก" />
+                <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="cancel" PostBackUrl="CategoryData.aspx" Text="Back" />
             </ItemTemplate>
         </asp:FormView>
             <asp:SqlDataSource ID="categoryViewDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Category] where CategoryKey = @categorykey">

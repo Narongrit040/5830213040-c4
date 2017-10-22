@@ -21,7 +21,7 @@
                 <asp:TextBox ID="descriptionTextBox" runat="server" Text='<%# Bind("description") %>' />
                 <br />
                 <asp:Button ID="btnUpdate" runat="server" CommandName="update" Text="แก้ไขข้อมูล" />
-                <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="cancel" PostBackUrl="~/BrandData.aspx" Text="ยกเลิก" />
+                <asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="cancel" PostBackUrl="BrandData.aspx" Text="ยกเลิก" />
             </EditItemTemplate>
       
             <ItemTemplate>

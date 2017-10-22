@@ -2,13 +2,13 @@
 .mydatagrid
 {
 	width: 100%;
-	border: solid 2px #646464;
+	border: solid 2px #e9cfcf;
 	min-width: 80%;
 	font-family: prakas;
 }
 .header
 {
-	background-color: #646464;
+	background-color: #f7a5a5;
 	color: White;
 	border: none 0px transparent;
 	height: 25px;
@@ -16,8 +16,8 @@
 }
 .emptyrow
 {
-	background-color: #DDDDDD;
-	color: #ff9811;
+	background-color: rgb(207, 243, 243);
+	color: rgb(240, 101, 101);
 	border: none 0px transparent;
 	height: 25px;
 	text-align: center;
@@ -34,12 +34,12 @@
 }
 .rows:hover
 {
-	background-color: #ff8000;
+	background-color: #f15252;
 	text-align: left;
 }
 .selectedrow
 {
-	background-color: #ff8000;
+	background-color: #f15252;
 	font-weight: bold;
 	text-align: left;
 }
@@ -76,4 +76,7 @@
 .mydatagrid th
 {
 	padding: 5px;
+}
+body {
+    background-color: lightblue;
 }

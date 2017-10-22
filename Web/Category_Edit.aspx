@@ -60,6 +60,8 @@
                 </ItemTemplate>
             </asp:FormView>       
 
+            <asp:Button ID="Button1" runat="server" PostBackUrl="CategoryData.aspx" Text="Back" />
+
             <asp:SqlDataSource ID="categoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Category] where CategoryKey = @CategoryKey">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="CategoryKey" QueryStringField="CategoryKey" />
