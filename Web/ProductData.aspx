@@ -12,12 +12,13 @@
       <center>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <asp:Button ID="txtSearchProduct" runat="server" Text="search" />
-        <asp:Button ID="Button1" runat="server" PostBackUrl="Product_Add.aspx" Text="Add Product" />
+          <asp:Button ID="Button3" runat="server" PostBackUrl="Product_Add.aspx" Text="Add Product" />
           <br />
           <br />
         <div>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="productDS">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="productDS" DataKeyNames="ProductID">
                 <Columns>
+                    <asp:BoundField DataField="ProductID" HeaderText="ProductID" InsertVisible="False" ReadOnly="True" SortExpression="ProductID" Visible="False" />
                     <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
                     <asp:BoundField DataField="BrandKey" HeaderText="BrandKey" SortExpression="BrandKey" />
                     <asp:BoundField DataField="CategoryKey" HeaderText="CategoryKey" SortExpression="CategoryKey" />
@@ -34,8 +35,8 @@
                     <asp:BoundField DataField="Barcode3" HeaderText="Barcode3" SortExpression="Barcode3" />
                     <asp:BoundField DataField="Barcode4" HeaderText="Barcode4" SortExpression="Barcode4" />
                     <asp:BoundField DataField="Barcode5" HeaderText="Barcode5" SortExpression="Barcode5" />
-                    <asp:HyperLinkField HeaderText="Edit" Text="&lt;img src='img/edit.png' /&gt;" />
-                    <asp:HyperLinkField HeaderText="View" Text="&lt;img src='img/view.png' /&gt;" />
+                    <asp:HyperLinkField HeaderText="Edit" Text="&lt;img src='img/edit.png' /&gt;" DataNavigateUrlFields="ProductID" DataNavigateUrlFormatString="Product_Edit.aspx?ProductID={0}" />
+                    <asp:HyperLinkField HeaderText="View" Text="&lt;img src='img/view.png' /&gt;" DataNavigateUrlFields="ProductID" DataNavigateUrlFormatString="Product_View.aspx?ProductID={0}" />
                     <asp:ButtonField CommandName="delete" HeaderText="Delete" Text="&lt;img src='img/delete.png' /&gt;" />
                 </Columns>
                     <HeaderStyle CssClass="header" />
@@ -46,7 +47,10 @@
             <asp:SqlDataSource ID="productDS" runat="server" CancelSelectOnNullParameter="False" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * 
 FROM [Product] 
 WHERE ProductName LIKE '%' + ISNULL(@searchProductName, ProductName) + '%'
-ORDER BY [ProductName]">
+ORDER BY [ProductName]" DeleteCommand="delete from product where ProductID = @ProductID">
+                <DeleteParameters>
+                    <asp:Parameter Name="ProductID" />
+                </DeleteParameters>
                 <SelectParameters>
                     <asp:ControlParameter ControlID="TextBox1" Name="searchProductName" PropertyName="Text" />
                 </SelectParameters>

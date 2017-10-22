@@ -63,10 +63,15 @@
 
             <asp:Button ID="Button1" runat="server" PostBackUrl="CategoryData.aspx" Text="Back" />
 
-            <asp:SqlDataSource ID="categoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Category] where CategoryKey = @CategoryKey">
+            <asp:SqlDataSource ID="categoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Category] where CategoryKey = @CategoryKey" UpdateCommand="UPDATE category SET CategoryName = @CategoryName, Description = @Description, UserModify = 'Admin', modifydate = GETDATE() WHERE (Categorykey = @CategoryKey)">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="CategoryKey" QueryStringField="CategoryKey" />
                 </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="CategoryName" />
+                    <asp:Parameter Name="Description" />
+                    <asp:Parameter Name="CategoryKey" />
+                </UpdateParameters>
             </asp:SqlDataSource>
 
         </div>

@@ -10,7 +10,7 @@
 <body  style="background-image: url('img/bg.jpg');">
     <form id="form1" runat="server">
         <div>
-            <asp:FormView ID="fvEdit" runat="server" DataSourceID="unitDS">
+            <asp:FormView ID="fvEdit" runat="server" DataSourceID="unitDS" DataKeyNames="UnitKey">
                 <EditItemTemplate>
                     UnitName:
                     <asp:TextBox ID="UnitNameTextBox" runat="server" Text='<%# Bind("UnitName") %>' />
@@ -52,7 +52,13 @@
 
             <asp:Button ID="Button1" runat="server" PostBackUrl="UnitData.aspx" Text="Back" />
 
-            <asp:SqlDataSource ID="unitDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT [UnitName], [UnitABBR], [UserModify] FROM [Unit]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="unitDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Unit]" UpdateCommand="UPDATE unit SET unitname = @unitname, unitABBR = @unitABBR, usermodify = 'Admin', modifydate = GETDATE() WHERE (UnitKey = @UnitKey)">
+                <UpdateParameters>
+                    <asp:Parameter Name="Unitname" />
+                    <asp:Parameter Name="UnitABBR" />
+                    <asp:Parameter Name="UnitKey" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>

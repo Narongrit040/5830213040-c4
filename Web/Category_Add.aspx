@@ -66,7 +66,14 @@
                 </ItemTemplate>
             </asp:FormView>
             <asp:Button ID="Button1" runat="server" PostBackUrl="CategoryData.aspx" Text="Back" />
-            <asp:SqlDataSource ID="CategoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="CategoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Category]" InsertCommand="INSERT INTO CATEGORY (CATEGORYNAME , DESCRIPTION , USERMODIFY)
+VALUES (@CATEGORYNAME , @DESCRIPTION , @USERMODIFY)">
+                <InsertParameters>
+                    <asp:Parameter Name="CATEGORYNAME" />
+                    <asp:Parameter Name="DESCRIPTION" />
+                    <asp:Parameter Name="USERMODIFY" />
+                </InsertParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>

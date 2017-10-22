@@ -7,14 +7,11 @@
     <title></title>
       <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
 </head>
-<body  style="background-image: url('img/bg.jpg');">
+<body style="background-image: url('img/bg.jpg');">
     <form id="form1" runat="server">
-        <div>
-            <asp:FormView ID="fvPro" runat="server" DataSourceID="productDS">
+       <center> <div>
+            <asp:FormView ID="FormView1" runat="server" DataSourceID="ProductDS">
                 <EditItemTemplate>
-                    ProductID:
-                    <asp:TextBox ID="ProductIDTextBox" runat="server" Text='<%# Bind("ProductID") %>' />
-                    <br />
                     ProductName:
                     <asp:TextBox ID="ProductNameTextBox" runat="server" Text='<%# Bind("ProductName") %>' />
                     <br />
@@ -44,9 +41,6 @@
                     <br />
                     UserModify:
                     <asp:TextBox ID="UserModifyTextBox" runat="server" Text='<%# Bind("UserModify") %>' />
-                    <br />
-                    ModifyDate:
-                    <asp:TextBox ID="ModifyDateTextBox" runat="server" Text='<%# Bind("ModifyDate") %>' />
                     <br />
                     Barcode1:
                     <asp:TextBox ID="Barcode1TextBox" runat="server" Text='<%# Bind("Barcode1") %>' />
@@ -67,9 +61,6 @@
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    ProductID:
-                    <asp:TextBox ID="ProductIDTextBox" runat="server" Text='<%# Bind("ProductID") %>' />
-                    <br />
                     ProductName:
                     <asp:TextBox ID="ProductNameTextBox" runat="server" Text='<%# Bind("ProductName") %>' />
                     <br />
@@ -100,9 +91,6 @@
                     UserModify:
                     <asp:TextBox ID="UserModifyTextBox" runat="server" Text='<%# Bind("UserModify") %>' />
                     <br />
-                    ModifyDate:
-                    <asp:TextBox ID="ModifyDateTextBox" runat="server" Text='<%# Bind("ModifyDate") %>' />
-                    <br />
                     Barcode1:
                     <asp:TextBox ID="Barcode1TextBox" runat="server" Text='<%# Bind("Barcode1") %>' />
                     <br />
@@ -122,9 +110,6 @@
                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    ProductID:
-                    <asp:Label ID="ProductIDLabel" runat="server" Text='<%# Bind("ProductID") %>' />
-                    <br />
                     ProductName:
                     <asp:Label ID="ProductNameLabel" runat="server" Text='<%# Bind("ProductName") %>' />
                     <br />
@@ -155,9 +140,6 @@
                     UserModify:
                     <asp:Label ID="UserModifyLabel" runat="server" Text='<%# Bind("UserModify") %>' />
                     <br />
-                    ModifyDate:
-                    <asp:Label ID="ModifyDateLabel" runat="server" Text='<%# Bind("ModifyDate") %>' />
-                    <br />
                     Barcode1:
                     <asp:Label ID="Barcode1Label" runat="server" Text='<%# Bind("Barcode1") %>' />
                     <br />
@@ -173,11 +155,26 @@
                     Barcode5:
                     <asp:Label ID="Barcode5Label" runat="server" Text='<%# Bind("Barcode5") %>' />
                     <br />
-
+                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                 </ItemTemplate>
             </asp:FormView>
-            <asp:Button ID="Button1" runat="server" PostBackUrl="ProductData" Text="Back" />
-            <asp:SqlDataSource ID="productDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * FROM [Product]"></asp:SqlDataSource>
+            <asp:Button ID="Button1" runat="server" PostBackUrl="ProductData.aspx" Text="Back" />
+            <asp:SqlDataSource ID="ProductDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" InsertCommand="INSERT INTO PRODUCT(PRODUCTNAME , BRANKEY,CATEGORYKEY ,UNITBUYKEY,UNITSALEKEY,UNITBUYTOSALE,REORDERUNIT,SALEPRICE,SIZEDESCRIPTION, USERMODIFY,ModifyDate = Getdate())
+VALUES (@PRODUCTNAME , @BRANKEY,@CATEGORYKEY ,@UNITBUYKEY,@UNITSALEKEY,@UNITBUYTOSALE,@REORDERUNIT,@SALEPRICE,@SIZEDESCRIPTION, @USERMODIFY,@ModifyDate)" SelectCommand="SELECT [ProductName], [BrandKey], [CategoryKey], [UnitBuyKey], [UnitSaleKey], [UnitBuyToSale], [ReOrderUnit], [SalePrice], [SizeDescription], [UserModify], [ModifyDate], [Barcode1], [Barcode2], [Barcode3], [Barcode4], [Barcode5] FROM [Product]">
+                <InsertParameters>
+                    <asp:Parameter Name="PRODUCTNAME" />
+                    <asp:Parameter Name="BRANKEY" />
+                    <asp:Parameter Name="CATEGORYKEY" />
+                    <asp:Parameter Name="UNITBUYKEY" />
+                    <asp:Parameter Name="UNITSALEKEY" />
+                    <asp:Parameter Name="UNITBUYTOSALE" />
+                    <asp:Parameter Name="REORDERUNIT" />
+                    <asp:Parameter Name="SALEPRICE" />
+                    <asp:Parameter Name="SIZEDESCRIPTION" />
+                    <asp:Parameter Name="USERMODIFY" />
+                    <asp:Parameter Name="ModifyDate" />
+                </InsertParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>

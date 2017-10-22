@@ -16,8 +16,9 @@
         <asp:Button ID="Button1" runat="server" PostBackUrl="Category_Add.aspx" Text="Add Category" />
         <br />
         <br />
-        <asp:GridView ID="gvBrand" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="CategoryDS" Width="600px" CssClass="mydatagrid">
+        <asp:GridView ID="gvBrand" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="CategoryDS" Width="600px" CssClass="mydatagrid" DataKeyNames="Categorykey">
             <Columns>
+                <asp:BoundField DataField="CategoryKey" HeaderText="CategoryKey" InsertVisible="False" ReadOnly="True" SortExpression="CategoryKey" Visible="False" />
                 <asp:BoundField DataField="CategoryName" HeaderText="CategoryName" SortExpression="CategoryName">
                 </asp:BoundField>
                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
@@ -26,7 +27,7 @@
                 <asp:BoundField DataField="ModifyDate" HeaderText="ModifyDate" SortExpression="ModifyDate" />
                 <asp:HyperLinkField DataNavigateUrlFields="CategoryKey" DataNavigateUrlFormatString="Category_Edit.aspx?CategoryKey={0}" HeaderText="Edit" Text="&lt;img src='img/edit.png' /&gt;" />
                 <asp:HyperLinkField DataNavigateUrlFields="CategoryKey" DataNavigateUrlFormatString="Category_View.aspx?CategoryKey={0}" HeaderText="View" Text="&lt;img src='img/view.png' /&gt;" />
-                <asp:HyperLinkField HeaderText="Delete" Text="&lt;img src='img/delete.png' /&gt;" NavigateUrl="delete" />
+                <asp:ButtonField CommandName="delete" HeaderText="Delete" Text="&lt;img src='img/delete.png' /&gt;" />
             </Columns>
             <HeaderStyle CssClass="header" />
             <RowStyle CssClass="rows" />
@@ -36,7 +37,10 @@
         <asp:SqlDataSource ID="CategoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * 
 FROM [Category] 
 WHERE categoryName LIKE '%' + ISNULL(@searchCategoryName, categoryname) + '%'
-ORDER BY [categoryname]" CancelSelectOnNullParameter="False">
+ORDER BY [categoryname]" CancelSelectOnNullParameter="False" DeleteCommand="delete from category where CategoryKey = @CategoryKey">
+            <DeleteParameters>
+                <asp:Parameter Name="categorykey" />
+            </DeleteParameters>
             <SelectParameters>
                 <asp:ControlParameter ControlID="TextCategory" Name="searchCategoryName" PropertyName="Text" />
             </SelectParameters>
