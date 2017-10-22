@@ -6,59 +6,10 @@
 <head runat="server">
     <title></title>
      <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
-    <style type="text/css">
-
-.mydatagrid
-{
-	width: 100%;
-	border: solid 2px #646464;
-	min-width: 80%;
-	font-family: prakas;
-}
-.header
-{
-	background-color: #646464;
-	color: White;
-	border: none 0px transparent;
-	height: 25px;
-	text-align: center;
-}
-.mydatagrid th
-{
-	padding: 5px;
-}
-.mydatagrid a /** FOR THE PAGING ICONS  **/
-{
-	background-color: Transparent;
-	padding: 5px 5px 5px 5px;
-	color: #fff;
-	text-decoration: none;
-	font-weight: bold;
-}
-.rows
-{
-	background-color: #fff;
-	color: #000;
-	min-height: 25px;
-	text-align: left;
-	border: none 0px transparent;
-	font-size: 0.9em;
-}
-.mydatagrid td
-{
-	padding: 2px;
-}
-.mydatagrid span /** FOR THE PAGING ICONS CURRENT PAGE INDICATOR **/
-{
-	background-color: #c9c9c9;
-	color: #000;
-	padding: 5px 5px 5px 5px;
-}
-    </style>
 </head>
-<body>
+<body style="background-image: url('img/bg.jpg');">
    <form id="form2" runat="server">
-    <div>
+  <center>   <div>
        
         <asp:TextBox ID="TextCategory" runat="server"></asp:TextBox>
         <asp:Button ID="searchCategory" runat="server" Text="Search" />
@@ -80,6 +31,7 @@
             <HeaderStyle CssClass="header" />
             <RowStyle CssClass="rows" />
         </asp:GridView>
+        <br />
         <asp:Button ID="Button2" runat="server" PostBackUrl="index.aspx" Text="Back" />
         <asp:SqlDataSource ID="CategoryDS" runat="server" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * 
 FROM [Category] 

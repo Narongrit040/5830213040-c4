@@ -9,12 +9,14 @@
     <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
 
 </head>
-<body>
+<body style="background-image: url('img/bg.jpg');">
    <form id="form1" runat="server">
-    <div>
+  <center>  <div>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <asp:Button ID="txtSearchCategoryName" runat="server" Text="search" />
         <asp:Button ID="btnAddBrand" runat="server" Text="เพิ่มยี่ห้อสินค้า" PostBackUrl="Brand_Add.aspx" />
+        <br />
+        <br />
         <asp:GridView ID="gvBrand" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="brandkey" DataSourceID="brandDS" Width="600px" CssClass="mydatagrid">
             <Columns>
                 <asp:BoundField DataField="brandkey" HeaderText="brandkey" InsertVisible="False" ReadOnly="True" SortExpression="brandkey" Visible="False" />
@@ -38,6 +40,7 @@
             <HeaderStyle CssClass="header" />
             <RowStyle CssClass="rows" />
         </asp:GridView>
+        <br />
     </div>
         <asp:Button ID="Button1" runat="server" PostBackUrl="index.aspx" Text="Back" />
         <asp:SqlDataSource ID="brandDS" runat="server" ConnectionString="<%$ ConnectionStrings:Sample_Connection %>" SelectCommand="SELECT * 

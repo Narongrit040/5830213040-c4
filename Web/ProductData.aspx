@@ -7,11 +7,14 @@
     <title></title>
       <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-image: url('img/bg.jpg');">
     <form id="form1" runat="server">
-      <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+      <center>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <asp:Button ID="txtSearchProduct" runat="server" Text="search" />
         <asp:Button ID="Button1" runat="server" PostBackUrl="Product_Add.aspx" Text="Add Product" />
+          <br />
+          <br />
         <div>
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="productDS">
                 <Columns>
@@ -38,6 +41,7 @@
                     <HeaderStyle CssClass="header" />
             <RowStyle CssClass="rows" />
             </asp:GridView>
+            <br />
             <asp:Button ID="Button2" runat="server" PostBackUrl="index.aspx" Text="Back" />
             <asp:SqlDataSource ID="productDS" runat="server" CancelSelectOnNullParameter="False" ConnectionString="<%$ ConnectionStrings:ASPNET_SAMPLEDBConnectionString %>" SelectCommand="SELECT * 
 FROM [Product] 

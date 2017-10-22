@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+         <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
+<body  style="background-image: url('img/bg.jpg');">
     <form id="form1" runat="server">
         <div>
             <asp:FormView ID="FormView1" runat="server" DataSourceID="categoryDS" DataKeyNames="CategoryKey">

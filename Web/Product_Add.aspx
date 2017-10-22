@@ -7,7 +7,7 @@
     <title></title>
       <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
+<body  style="background-image: url('img/bg.jpg');">
     <form id="form1" runat="server">
         <div>
             <asp:FormView ID="fvPro" runat="server" DataSourceID="productDS">

@@ -1,0 +1,23 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="Web_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+         <link href="css/mygrid.css" type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl="~/Web/img/bg.jpg" style="margin-bottom: 0px" Width="738px" />
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
